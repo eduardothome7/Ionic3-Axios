@@ -12,12 +12,23 @@
     placeholder="Buscar usuário"
     [showCancelButton]="shouldShowCancel">
   </ion-searchbar>
-  <ion-list>
+
+  <ion-list *ngIf="usuarios">
     <ion-item *ngFor="let usuario of usuarios | search : term">
       <ion-avatar item-start><img src="{{ usuario.picture.thumbnail }}"></ion-avatar>
       <h2>{{ usuario.name.first }} {{ usuario.name.last }}</h2>
       <h3>{{ usuario.email }} </h3>
       <p class="capitalize">{{ usuario.location.street }} - {{ usuario.location.city }} - {{ usuario.location.state }}</p>
     </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="!usuarios">
+    <ion-item *ngFor="let c of [1,2,3,4,5]" class="fake">
+      <ion-avatar item-start><img></ion-avatar>
+      <h2></h2>
+      <h3></h3>
+      <p></p>
+    </ion-item>
+    
   </ion-list>
 </ion-content>

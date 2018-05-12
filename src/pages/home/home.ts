@@ -18,17 +18,15 @@ export class HomePage {
   }
 
   async carregaUsuarios(){
-    const URL = "https://randomuser.me/api/?results=100&nat=br";
-    
-    
+    const URL = "https://randomuser.me/api/?results=1000&nat=br";
+      
     try {
       let response = await axios.get(URL);
-      this.usuarios = response.data.results; 
+      this.usuarios = response.data.results;
     } catch(e) {
       console.log(e);
     }
      
-
   }
 
 }
